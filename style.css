@@ -1,0 +1,174 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+header {
+    background-color: black;
+    height:80px;
+    width:100%;
+}
+header h1 {
+    color:white;
+    position:absolute;
+    left:120px;
+    top:0;
+    line-height: 80px;
+}
+header ul{
+    position: absolute;
+    right:5vw;
+    top:0;
+    line-height: 80px;
+}
+header li{
+    display: inline;
+    margin-right:4vw;
+}
+header a{
+    color:white;
+    text-decoration: none;
+}
+header a:hover{
+    text-decoration: underline;
+}
+.menu{
+    display: none;
+}
+/* 响应式设计 */
+@media screen and (max-width:768px) {
+    header ul{
+        display: none;
+    }
+    header h1{
+        left:50%;
+        transform: translateX(-50%);
+    }
+    .menu{
+        display: block;
+        background-color: transparent;
+        color: white;
+        font-size: 35px;
+        position: absolute;
+        top: 15px;
+        left: 20px;
+        border: none;
+        cursor: pointer;
+    }
+}
+.form{
+    background-color:yellowgreen;
+    color:white;
+    padding: 60px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form p{
+    margin-bottom: 20px;
+}
+.form input, .form button{
+    background-color: transparent;
+    color: white;
+    border: 1px solid #949d9a;
+    padding: 10px;
+    border-radius: 5px;
+}
+.form input{
+    width: 200px;
+    margin-right: 15px;
+}
+.form button{
+    width: 80px;
+    cursor: pointer;
+}
+input::placeholder{
+    color: white;
+}
+input:focus{
+    outline: none;
+    border-color: chartreuse;
+}
+.about_me {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+    text-decoration: none;
+    background-color: rgb(255, 255, 255);
+    color:rgb(0, 0, 0);
+}
+.Ad {
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    height:50px;
+    padding: 2rem;
+    border-radius: 8px;
+    box-sizing: border-box;
+    background-color: rgb(107, 165, 212);
+}
+footer {
+    background-color:#000000;
+    color:#ffffff;
+    height:60px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+}
+.dir-blog{
+    display: flex;
+    justify-content: center;
+}
+.article1{
+    display: flex;
+    justify-content: center;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    height:50px;
+    padding: 2rem;
+    border-radius: 8px;
+    box-sizing: border-box;
+    background-color: rgba(21, 255, 0, 0.801);
+}
+.main-article1{
+    display: flex;
+    justify-content: center;
+}
+.main_articles{
+    display: flex;
+    height:50px;
+    padding: 2rem;
+    border-radius: 8px;
+    box-sizing: border-box;
+    background-color: rgb(247, 243, 243);
+}
+.search{
+    color:rgb(0, 0, 0);
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.search p{
+    margin-bottom: 20px;
+}
+.search input, .search button{
+    background-color: transparent;
+    color: rgb(0, 0, 0);
+    border: 1px solid #000000;
+    padding: 10px;
+    border-radius: 5px;
+}
+.search input{
+    width: 200px;
+    margin-right: 15px;
+}
+.search button{
+    width: 80px;
+    cursor: pointer;
+}
