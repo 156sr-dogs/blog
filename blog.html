@@ -1,38 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>156Blog - Creeper苦力怕i个人博客</title>
-    <link rel="stylesheet" href="style.css">
+    <title>博客文章 - Creeper苦力怕i个人博客</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/blog.css">
+    <script src="js/common.js"></script>
+    <script src="js/blog_list.js"></script>
 </head>
 <body>
     <header>
-    <button class="menu">&#9776;</button>
-    <h1>Creeper苦力怕i</h1>
-    <nav>
-    <ul>
-        <li><a href="index.html">首页</a></li>
-        <li><a href="download.html">下载</a></li>
-        <li><a href="blog.html">博客</a></li>
-        <li><a href="link.html">链接</a></li>                
-    </ul>
-    </nav>  
+        <button class="menu">&#9776;</button>
+        <h1>Creeper苦力怕i</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="download.html">下载</a></li>
+                <li><a href="blog.html">博客</a></li>
+                <li><a href="link.html">链接</a></li>
+            </ul>
+        </nav>
     </header>
-    <main>
-    <section class="search">
-        <form>
-            <input type="search" placeholder="请输入您的E-mail！" required>
-            <button type="submit">搜索</button>
-        </form>
-    </section>
-    <section class ="dir-blog">
-        <h1>文章列表</h1>
-    </section>
-    <section class = "article1">
-        <h2><a href="article1.html">文章1 - 欢迎！</a></h2>
-    </section>
+    
+    <main class="container">
+        <div class="controls">
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="search" placeholder="搜索文章...">
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">全部</button>
+                <button class="filter-btn" data-filter="前端">前端开发</button>
+                <button class="filter-btn" data-filter="后端">后端开发</button>
+                <button class="filter-btn" data-filter="移动">移动开发</button>
+                <button class="filter-btn" data-filter="AI">人工智能</button>
+            </div>
+        </div>
+        
+        <!-- 添加滚动容器 -->
+        <div class="articles-container-wrapper">
+            <ul class="articles-list" id="articles-container">
+                <!-- 文章列表将通过JavaScript动态生成 -->
+            </ul>
+        </div>
+        
+        <div class="pagination">
+            <!-- 分页按钮将通过JavaScript动态生成 -->
+        </div>
     </main>
+    
     <footer>
         <p>Copyright © 2025-2037 Creeper苦力怕i的个人博客. 保留所有权利。</p>
     </footer>

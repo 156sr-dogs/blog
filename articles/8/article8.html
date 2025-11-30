@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小程序开发实战经验分享 - Creeper苦力怕i个人博客</title>
+    <meta name="description" content="分享小程序开发中的实战经验、常见问题解决方案和性能优化技巧">
+    <link rel="stylesheet" href="/articles/article.css">
+    <script src="js/common.js"></script>
+</head>
+<body>
+    
+    <main>
+        <article>
+            <header class="article-header">
+                <h1 class="article-title">小程序开发实战经验分享</h1>
+                <div class="article-meta">
+                    <span class="meta-item">
+                        <span class="meta-icon">📅</span> 2025年10月10日
+                    </span>
+                    <span class="meta-item">
+                        <span class="meta-icon">⏱️</span> 6分钟阅读
+                    </span>
+                    <span class="meta-item">
+                        <span class="meta-icon">🏷️</span> 小程序开发
+                    </span>
+                </div>
+            </header>
+            
+            <div class="article-content">
+                <section class="article-section">
+                    <div class="highlight-box">
+                        <p>📱 从0到1构建高质量小程序，分享实战中的经验与技巧</p>
+                    </div>
+                    
+                    <h2 class="section-title">✨ 小程序开发概述</h2>
+                    <p class="article-text">
+                        小程序作为一种轻量级应用，凭借其无需下载安装、即用即走的特性，已成为移动互联网的重要入口。无论是微信小程序、支付宝小程序还是其他平台的小程序，都为开发者提供了丰富的商业机会。
+                    </p>
+                    <p class="article-text">
+                        本文基于多个小程序项目的实战经验，分享开发过程中的关键技巧、常见问题解决方案和性能优化策略。
+                    </p>
+                    
+                    <h2 class="section-title">🚀 小程序开发核心要点</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <span class="feature-icon">📐</span>
+                            <h3 class="feature-title">架构设计</h3>
+                            <p class="feature-desc">合理规划页面结构和组件复用</p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-icon">🎨</span>
+                            <h3 class="feature-title">UI/UX设计</h3>
+                            <p class="feature-desc">遵循平台设计规范，保证用户体验</p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-icon">⚡</span>
+                            <h3 class="feature-title">性能优化</h3>
+                            <p class="feature-desc">提升加载速度和运行流畅度</p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-icon">🔐</span>
+                            <h3 class="feature-title">数据安全</h3>
+                            <p class="feature-desc">保护用户数据和接口安全</p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-icon">📦</span>
+                            <h3 class="feature-title">分包加载</h3>
+                            <p class="feature-desc">优化首屏加载时间</p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-icon">🔧</span>
+                            <h3 class="feature-title">调试技巧</h3>
+                            <p class="feature-desc">高效定位和解决问题</p>
+                        </div>
+                    </div>
+                    
+                    <h2 class="section-title">💻 小程序架构设计经验</h2>
+                    <p class="article-text">
+                        <strong>1. 页面结构规划</strong><br>
+                        合理划分页面层级，避免页面嵌套过深。建议采用扁平化结构，每个页面功能单一明确。
+                    </p>
+                    <p class="article-text">
+                        <strong>2. 组件化开发</strong><br>
+                        将可复用的UI元素和逻辑封装成组件，提高代码复用性和可维护性：
+                    </p>
+                    <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0; font-family: monospace; font-size: 0.9rem; border-left: 4px solid #11cb5f;">
+                        // components/custom-button/custom-button.js<br>
+                        Component({<br>
+                        &nbsp;&nbsp;properties: {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;text: {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: String,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value: '按钮'<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;},<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;type: {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: String,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value: 'primary'<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        &nbsp;&nbsp;},<br>
+                        &nbsp;&nbsp;methods: {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;onTap() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.triggerEvent('tap')<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        &nbsp;&nbsp;}<br>
+                        })
+                    </div>
+                    
+                    <h2 class="section-title">⚡ 性能优化实战技巧</h2>
+                    
+                    <h3 class="section-title" style="font-size: 1.2rem; color: #2c3e50; margin-top: 1.5rem;">1. 分包加载策略</h3>
+                    <p class="article-text">
+                        合理使用分包加载，将非首屏页面和功能模块拆分为独立分包：
+                    </p>
+                    <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0; font-family: monospace; font-size: 0.9rem;">
+                        // app.json<br>
+                        {<br>
+                        &nbsp;&nbsp;"pages": [<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;"pages/index/index",<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;"pages/logs/logs"<br>
+                        &nbsp;&nbsp;],<br>
+                        &nbsp;&nbsp;"subpackages": [<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;{<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"root": "packageA",<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"pages": [<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"pages/cat/cat",<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"pages/dog/dog"<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;},<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;{<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"root": "packageB",<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "pack2",<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"pages": [<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"pages/apple/apple",<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"pages/banana/banana"<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        &nbsp;&nbsp;]<br>
+                        }
+                    </div>
+                    
+                    <h3 class="section-title" style="font-size: 1.2rem; color: #2c3e50; margin-top: 1.5rem;">2. 图片优化</h3>
+                    <p class="article-text">
+                        图片是小程序体积的主要来源，优化策略包括：
+                    </p>
+                    <p class="article-text">
+                        • 使用合适的图片格式（WebP在支持的情况下优先）<br>
+                        • 压缩图片大小，减少网络传输<br>
+                        • 使用懒加载，非首屏图片延迟加载<br>
+                        • 合理使用雪碧图减少请求次数
+                    </p>
+                    
+                    <h3 class="section-title" style="font-size: 1.2rem; color: #2c3e50; margin-top: 1.5rem;">3. 数据缓存策略</h3>
+                    <p class="article-text">
+                        合理使用本地缓存，减少网络请求：
+                    </p>
+                    <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0; font-family: monospace; font-size: 0.9rem;">
+                        // 数据缓存工具类<br>
+                        class CacheUtil {<br>
+                        &nbsp;&nbsp;static set(key, data, expire = 3600) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;wx.setStorageSync(key, {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;expire: Date.now() + expire * 1000<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;})<br>
+                        &nbsp;&nbsp;}<br><br>
+                        
+                        &nbsp;&nbsp;static get(key) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;const cache = wx.getStorageSync(key)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;if (cache && cache.expire > Date.now()) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return cache.data<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;return null<br>
+                        &nbsp;&nbsp;}<br><br>
+                        
+                        &nbsp;&nbsp;static remove(key) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;wx.removeStorageSync(key)<br>
+                        &nbsp;&nbsp;}<br>
+                        }
+                    </div>
+                    
+                    <h2 class="section-title">🔧 常见问题与解决方案</h2>
+                    
+                    <h3 class="section-title" style="font-size: 1.2rem; color: #2c3e50; margin-top: 1.5rem;">1. 页面白屏问题</h3>
+                    <p class="article-text">
+                        <strong>原因:</strong> 数据加载过慢、JS异常、网络问题等<br>
+                        <strong>解决方案:</strong><br>
+                        • 添加加载状态和骨架屏<br>
+                        • 使用try-catch捕获异常<br>
+                        • 实现数据缓存和离线功能
+                    </p>
+                    
+                    <h3 class="section-title" style="font-size: 1.2rem; color: #2c3e50; margin-top: 1.5rem;">2. 渲染性能问题</h3>
+                    <p class="article-text">
+                        <strong>原因:</strong> 过多setData、复杂数据结构、长列表等<br>
+                        <strong>解决方案:</strong><br>
+                        • 减少setData调用频率和数据量<br>
+                        • 使用虚拟列表优化长列表渲染<br>
+                        • 避免在wxml中进行复杂计算
+                    </p>
+                    
+                    <h3 class="section-title" style="font-size: 1.2rem; color: #2c3e50; margin-top: 1.5rem;">3. 内存泄漏问题</h3>
+                    <p class="article-text">
+                        <strong>原因:</strong> 未及时清理定时器、事件监听器等<br>
+                        <strong>解决方案:</strong><br>
+                        • 在页面卸载时清理所有资源<br>
+                        • 使用WeakMap管理监听器引用<br>
+                        • 定期检查内存使用情况
+                    </p>
+                    
+                    <h2 class="section-title">🛠️ 开发工具与资源推荐</h2>
+                    <p class="article-text">
+                        <strong>开发工具:</strong><br>
+                        • 微信开发者工具（必备）<br>
+                        • VSCode + 小程序插件<br>
+                        • 抓包工具：Charles、Fiddler<br><br>
+                        
+                        <strong>UI框架:</strong><br>
+                        • WeUI（微信官方UI库）<br>
+                        • Vant Weapp（有赞移动端组件库）<br>
+                        • MinUI（蘑菇街前端团队）<br><br>
+                        
+                        <strong>实用工具:</strong><br>
+                        • 小程序代码压缩工具<br>
+                        • 图片压缩工具（TinyPNG等）<br>
+                        • 代码规范检查工具（ESLint）
+                    </p>
+                    
+                    <h2 class="section-title">💡 上线与运营建议</h2>
+                    <p class="article-text">
+                        1. <strong>充分测试:</strong> 在不同设备和网络环境下全面测试<br>
+                        2. <strong>监控分析:</strong> 接入数据统计，监控用户行为和性能指标<br>
+                        3. <strong>用户反馈:</strong> 建立用户反馈渠道，及时响应问题<br>
+                        4. <strong>持续优化:</strong> 根据数据分析和用户反馈持续改进<br>
+                        5. <strong>版本管理:</strong> 制定清晰的版本发布和回滚策略
+                    </p>
+                    
+                    <div class="highlight-box">
+                        <p>🎯 小程序开发重在细节，优秀的用户体验来自对每个环节的精雕细琢！</p>
+                    </div>
+                </section>
+                
+                <div class="article-actions">
+                    <button class="action-btn" onclick="window.location.href='/blog.html'">
+                        📖 浏览更多文章
+                    </button>
+                    <button class="action-btn secondary" onclick="window.location.href='/index.html'">
+                        🏠 返回首页
+                    </button>
+                </div>
+            </div>
+        </article>
+    </main>
+    
+    <footer>
+        <p>Copyright © 2025-2037 Creeper苦力怕i的个人博客. 保留所有权利。</p>
+    </footer>
+</body>
+</html>

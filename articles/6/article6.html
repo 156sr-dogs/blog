@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue 3 Composition API 深度解析 - Creeper苦力怕i个人博客</title>
+    <meta name="description" content="深入解析Vue 3 Composition API的核心概念、使用方法和最佳实践">
+    <link rel="stylesheet" href="/articles/article.css">
+    <script src="js/common.js"></script>
+</head>
+<body>
+    
+    <main>
+        <article>
+            <header class="article-header">
+                <h1 class="article-title">Vue 3 Composition API 深度解析</h1>
+                <div class="article-meta">
+                    <span class="meta-item">
+                        <span class="meta-icon">📅</span> 2025年9月30日
+                    </span>
+                    <span class="meta-item">
+                        <span class="meta-icon">⏱️</span> 8分钟阅读
+                    </span>
+                    <span class="meta-item">
+                        <span class="meta-icon">🏷️</span> 前端框架
+                    </span>
+                </div>
+            </header>
+            
+            <div class="article-content">
+                <section class="article-section">
+                    <div class="highlight-box">
+                        <p>🎯 掌握Vue 3 Composition API，提升代码组织性和复用性</p>
+                    </div>
+                    
+                    <h2 class="section-title">✨ Composition API 简介</h2>
+                    <p class="article-text">
+                        Vue 3的Composition API是Vue框架的一次重大革新，它解决了Options API在复杂组件中代码组织困难的问题。通过基于函数的API，开发者可以更灵活地组织和复用组件逻辑。
+                    </p>
+                    <p class="article-text">
+                        Composition API不是要完全取代Options API，而是提供一种更强大的代码组织方式，特别是在处理复杂业务逻辑和跨组件逻辑复用时表现出色。
+                    </p>
+                    
+                    <h2 class="section-title">🚀 Composition API 核心特性</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <span class="feature-icon">🔧</span>
+                            <h3 class="feature-title">setup() 函数</h3>
+                            <p class="feature-desc">组件的入口点，在组件创建之前执行</p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-icon">📦</span>
+                            <h3 class="feature-title">响应式引用</h3>
+                            <p class="feature-desc">ref() 和 reactive() 创建响应式数据</p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-icon">🔄</span>
+                            <h3 class="feature-title">计算属性</h3>
+                            <p class="feature-desc">computed() 创建依赖其他状态的计算值</p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-icon">👀</span>
+                            <h3 class="feature-title">侦听器</h3>
+                            <p class="feature-desc">watch() 和 watchEffect() 响应状态变化</p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-icon">♻️</span>
+                            <h3 class="feature-title">生命周期</h3>
+                            <p class="feature-desc">onMounted、onUpdated等组合式API</p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-icon">📚</span>
+                            <h3 class="feature-title">逻辑复用</h3>
+                            <p class="feature-desc">自定义组合函数实现逻辑复用</p>
+                        </div>
+                    </div>
+                    
+                    <h2 class="section-title">💻 基础用法示例</h2>
+                    <p class="article-text">
+                        以下是一个简单的Composition API使用示例：
+                    </p>
+                    <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0; font-family: monospace; font-size: 0.9rem;">
+                        &lt;template&gt;<br>
+                        &nbsp;&nbsp;&lt;div&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;{{ title }}&lt;/h1&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;计数: {{ count }}&lt;/p&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;button @click="increment"&gt;增加&lt;/button&gt;<br>
+                        &nbsp;&nbsp;&lt;/div&gt;<br>
+                        &lt;/template&gt;<br><br>
+                        
+                        &lt;script&gt;<br>
+                        import { ref, onMounted } from 'vue'<br><br>
+                        
+                        export default {<br>
+                        &nbsp;&nbsp;setup() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;const title = ref('Vue 3 Composition API')<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;const count = ref(0)<br><br>
+                        
+                        &nbsp;&nbsp;&nbsp;&nbsp;const increment = () => {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count.value++<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+                        
+                        &nbsp;&nbsp;&nbsp;&nbsp;onMounted(() => {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log('组件已挂载')<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;})<br><br>
+                        
+                        &nbsp;&nbsp;&nbsp;&nbsp;return {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;increment<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        &nbsp;&nbsp;}<br>
+                        }<br>
+                        &lt;/script&gt;
+                    </div>
+                    
+                    <h2 class="section-title">🔄 ref() 与 reactive() 的区别</h2>
+                    <p class="article-text">
+                        <strong>ref()</strong>: 用于创建响应式的基本类型值或对象引用。访问时需要.value，但在模板中会自动解包。<br><br>
+                        
+                        <strong>reactive()</strong>: 用于创建响应式的对象。直接访问属性，不需要.value，但不能用于基本类型。
+                    </p>
+                    
+                    <h2 class="section-title">📚 自定义组合函数</h2>
+                    <p class="article-text">
+                        Composition API最大的优势之一是能够创建可复用的自定义组合函数：
+                    </p>
+                    <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0; font-family: monospace; font-size: 0.9rem;">
+                        // useCounter.js<br>
+                        import { ref } from 'vue'<br><br>
+                        
+                        export function useCounter(initialValue = 0) {<br>
+                        &nbsp;&nbsp;const count = ref(initialValue)<br><br>
+                        
+                        &nbsp;&nbsp;const increment = () => count.value++<br>
+                        &nbsp;&nbsp;const decrement = () => count.value--<br>
+                        &nbsp;&nbsp;const reset = () => count.value = initialValue<br><br>
+                        
+                        &nbsp;&nbsp;return {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;count,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;increment,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;decrement,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;reset<br>
+                        &nbsp;&nbsp;}<br>
+                        }<br><br>
+                        
+                        // 在组件中使用<br>
+                        import { useCounter } from './useCounter'<br><br>
+                        
+                        export default {<br>
+                        &nbsp;&nbsp;setup() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;const { count, increment, decrement } = useCounter(10)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;return { count, increment, decrement }<br>
+                        &nbsp;&nbsp;}<br>
+                        }
+                    </div>
+                    
+                    <h2 class="section-title">💡 最佳实践</h2>
+                    <p class="article-text">
+                        1. <strong>合理组织代码</strong>: 将相关逻辑组织在一起，而不是按选项类型分散<br>
+                        2. <strong>使用组合函数</strong>: 提取可复用的逻辑到自定义组合函数中<br>
+                        3. <strong>命名规范</strong>: 使用有意义的变量名和函数名<br>
+                        4. <strong>适当使用解构</strong>: 从响应式对象中解构时使用toRefs保持响应性<br>
+                        5. <strong>TypeScript支持</strong>: Composition API对TypeScript有更好的类型推断支持
+                    </p>
+                    
+                    <div class="highlight-box">
+                        <p>🎉 掌握Composition API，让你的Vue代码更加清晰和可维护！</p>
+                    </div>
+                </section>
+                
+                <div class="article-actions">
+                    <button class="action-btn" onclick="window.location.href='/blog.html'">
+                        📖 浏览更多文章
+                    </button>
+                    <button class="action-btn secondary" onclick="window.location.href='/index.html'">
+                        🏠 返回首页
+                    </button>
+                </div>
+            </div>
+        </article>
+    </main>
+    
+    <footer>
+        <p>Copyright © 2025-2037 Creeper苦力怕i的个人博客. 保留所有权利。</p>
+    </footer>
+</body>
+</html>

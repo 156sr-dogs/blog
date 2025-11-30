@@ -1,0 +1,143 @@
+@import url('common.css');
+
+/* 首页特有样式 */
+main {
+    flex: 1;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.form {
+    background-color: yellowgreen;
+    color: white;
+    padding: 60px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.form p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.form input, .form button {
+    background-color: transparent;
+    color: white;
+    border: 1px solid #949d9a;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.form input {
+    width: 50px;
+    margin-right: 15px;
+}
+
+.form button {
+    width: 80px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+input::placeholder {
+    color: white;
+    opacity: 0.8;
+}
+
+input:focus {
+    outline: none;
+    border-color: chartreuse;
+}
+
+.about_me {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.about_me img {
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+}
+
+.social-media {
+    margin-top: 1rem;
+}
+
+.social-media a {
+    color: #007bff;
+    text-decoration: none;
+    margin: 0 5px;
+    font-weight: 500;
+}
+
+.social-media a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
+.Ad {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    min-height: 50px;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    background-color: rgb(107, 165, 212);
+    margin: 1rem 0;
+}
+
+.Ad a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.Ad a:hover {
+    text-decoration: underline;
+}
+.form a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s;
+}
+
+.form a:hover {
+    color: #fbff00;
+}
+
+@media screen and (max-width: 768px) {
+    main {
+        padding: 10px;
+    }
+    
+    .form {
+        padding: 40px 20px;
+    }
+    
+    .form input {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    
+    .about_me {
+        padding: 1.5rem;
+    }
+}

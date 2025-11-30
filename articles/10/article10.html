@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid布局完全指南 - Creeper苦力怕i个人博客</title>
+    <meta name="description" content="全面掌握CSS Grid布局，从基础概念到高级技巧的完整指南">
+    <link rel="stylesheet" href="/articles/article.css">
+    <script src="js/common.js"></script>
+    <style>
+        .grid-demo {
+            display: grid;
+            gap: 10px;
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .grid-item {
+            background: #11cb5f;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            border-radius: 4px;
+        }
+        
+        .code-block {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            overflow-x: auto;
+        }
+        
+        .property-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .property-table th {
+            background: #11cb5f;
+            color: white;
+            padding: 1rem;
+            text-align: left;
+        }
+        
+        .property-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .property-table tr:last-child td {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    
+    <main>
+        <article>
+            <header class="article-header">
+                <h1 class="article-title">CSS Grid布局完全指南</h1>
+                <div class="article-meta">
+                    <span class="meta-item">
+                        <span class="meta-icon">📅</span> 2025年10月20日
+                    </span>
+                    <span class="meta-item">
+                        <span class="meta-icon">⏱️</span> 10分钟阅读
+                    </span>
+                    <span class="meta-item">
+                        <span class="meta-icon">🏷️</span> CSS技术
+                    </span>
+                </div>
+            </header>
+            
+            <div class="article-content">
+                <section class="article-section">
+                    <div class="highlight-box">
+                        <p>🎨 掌握现代CSS布局利器，构建复杂响应式网页布局</p>
+                    </div>
+                    
+                    <h2 class="section-title">✨ CSS Grid布局概述</h2>
+                    <p class="article-text">
+                        CSS Grid布局是CSS中最强大的布局系统，它是一个二维的布局系统，专门为解决网页布局问题而设计。与Flexbox（一维布局）不同，Grid可以同时处理行和列，让复杂的网页布局变得简单直观。
+                    </p>
+                    <p class="article-text">
+                        本指南将从基础概念到高级技巧，全面解析CSS Grid布局的各个方面，帮助你成为布局大师。
+                    </p>
+                    
+                    <h2 class="section-title">🚀 Grid布局核心概念</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <span class="feature-icon">📐</span>
+                            <h3 class="feature-title">网格容器</h3>
+                            <p class="feature-desc">使用display: grid创建网格布局的父元素</p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-icon">🔲</span>
+                            <h3 class="feature-title">网格项目</h3>
+                            <p class="feature-desc">网格容器的直接子元素，参与网格布局</p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-icon">📏</span>
+                            <h3 class="feature-title">网格线</h3>
+                            <p class="feature-desc">划分网格的行和列的线，用于定位项目</p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-icon">🟦</span>
+                            <h3 class="feature-title">网格轨道</h3>
+                            <p class="feature-desc">相邻网格线之间的空间，即行或列</p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-icon">🔳</span>
+                            <h3 class="feature-title">网格单元格</h3>
+                            <p class="feature-desc">行和列交叉形成的最小单位</p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-icon">🟨</span>
+                            <h3 class="feature-title">网格区域</h3>
+                            <p class="feature-desc">由一个或多个网格单元格组成的矩形区域</p>
+                        </div>
+                    </div>
+                    
+                    <h2 class="section-title">💻 基础Grid布局示例</h2>
+                    <p class="article-text">
+                        创建一个简单的3×3网格布局：
+                    </p>
+                    
+                    <div class="code-block">
+/* CSS代码 */
+.grid-container {
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    grid-template-rows: 100px 100px 100px;
+    gap: 10px;
+}
+
+.grid-item {
+    background: #11cb5f;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+                    </div>
+                    
+                    <div class="grid-demo" style="grid-template-columns: 100px 100px 100px; grid-template-rows: 100px 100px 100px;">
+                        <div class="grid-item">1</div>
+                        <div class="grid-item">2</div>
+                        <div class="grid-item">3</div>
+                        <div class="grid-item">4</div>
+                        <div class="grid-item">5</div>
+                        <div class="grid-item">6</div>
+                        <div class="grid-item">7</div>
+                        <div class="grid-item">8</div>
+                        <div class="grid-item">9</div>
+                    </div>
+                    
+                    <h2 class="section-title">📐 网格容器属性</h2>
+                    
+                    <table class="property-table">
+                        <thead>
+                            <tr>
+                                <th>属性</th>
+                                <th>描述</th>
+                                <th>示例值</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>display</code></td>
+                                <td>定义网格容器</td>
+                                <td><code>grid | inline-grid</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>grid-template-columns</code></td>
+                                <td>定义列轨道大小和数量</td>
+                                <td><code>100px 1fr 2fr</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>grid-template-rows</code></td>
+                                <td>定义行轨道大小和数量</td>
+                                <td><code>auto 200px</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>grid-template-areas</code></td>
+                                <td>定义网格区域模板</td>
+                                <td><code>"header header" "sidebar main"</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>gap</code></td>
+                                <td>设置网格轨道之间的间距</td>
+                                <td><code>10px | 1rem 2rem</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>justify-items</code></td>
+                                <td>水平对齐网格项内容</td>
+                                <td><code>start | end | center | stretch</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>align-items</code></td>
+                                <td>垂直对齐网格项内容</td>
+                                <td><code>start | end | center | stretch</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>place-items</code></td>
+                                <td>同时设置align-items和justify-items</td>
+                                <td><code>center stretch</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <h2 class="section-title">🔲 网格项目属性</h2>
+                    
+                    <table class="property-table">
+                        <thead>
+                            <tr>
+                                <th>属性</th>
+                                <th>描述</th>
+                                <th>示例值</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>grid-column</code></td>
+                                <td>定义项目在列上的起始和结束位置</td>
+                                <td><code>1 / 3 | span 2</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>grid-row</code></td>
+                                <td>定义项目在行上的起始和结束位置</td>
+                                <td><code>2 / 4</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>grid-area</code></td>
+                                <td>为项目指定区域名称或位置</td>
+                                <td><code>header | 1 / 1 / 3 / 3</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>justify-self</code></td>
+                                <td>单独项目的水平对齐方式</td>
+                                <td><code>start | end | center | stretch</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>align-self</code></td>
+                                <td>单独项目的垂直对齐方式</td>
+                                <td><code>start | end | center | stretch</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>place-self</code></td>
+                                <td>同时设置align-self和justify-self</td>
+                                <td><code>center start</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>order</code></td>
+                                <td>控制项目在网格中的显示顺序</td>
+                                <td><code>1 | -1</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <h2 class="section-title">🎯 实用布局技巧</h2>
+                    
+                    <h3 class="section-title" style="font-size: 1.2rem; color: #2c3e50; margin-top: 1.5rem;">1. 使用fr单位创建弹性布局</h3>
+                    <p class="article-text">
+                        fr单位表示网格容器中的可用空间的一部分，非常适合创建响应式布局：
+                    </p>
+                    
+                    <div class="code-block">
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr; /* 中间列是两侧列的两倍宽 */
+    grid-template-rows: 100px auto 100px;
+    gap: 15px;
+}
+                    </div>
+                    
+                    <div class="grid-demo" style="grid-template-columns: 1fr 2fr 1fr; grid-template-rows: 50px 100px 50px;">
+                        <div class="grid-item">1fr</div>
+                        <div class="grid-item">2fr</div>
+                        <div class="grid-item">1fr</div>
+                        <div class="grid-item">行2</div>
+                        <div class="grid-item">行2</div>
+                        <div class="grid-item">行2</div>
+                        <div class="grid-item">行3</div>
+                        <div class="grid-item">行3</div>
+                        <div class="grid-item">行3</div>
+                    </div>
+                    
+                    <h3 class="section-title" style="font-size: 1.2rem; color: #2c3e50; margin-top: 1.5rem;">2. 使用repeat()函数简化代码</h3>
+                    <p class="article-text">
+                        当需要创建多个相同大小的轨道时，可以使用repeat()函数：
+                    </p>
+                    
+                    <div class="code-block">
+/* 创建12个等宽的列 */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 10px;
+}
+
+/* 创建响应式网格：最小200px，最大1fr */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+                    </div>
+                    
+                    <h3 class="section-title" style="font-size: 1.2rem; color: #2c3e50; margin-top: 1.5rem;">3. 网格区域命名布局</h3>
+                    <p class="article-text">
+                        使用命名的网格区域可以创建直观的布局结构：
+                    </p>
+                    
+                    <div class="code-block">
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        "header header header"
+        "sidebar main main"
+        "footer footer footer";
+    grid-template-rows: 80px 1fr 60px;
+    grid-template-columns: 200px 1fr 1fr;
+    gap: 10px;
+    height: 400px;
+}
+
+.header { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+.main { grid-area: main; }
+.footer { grid-area: footer; }
+                    </div>
+                    
+                    <div class="grid-demo" style="grid-template-areas: 'header header header' 'sidebar main main' 'footer footer footer'; grid-template-rows: 50px 1fr 40px; grid-template-columns: 120px 1fr 1fr; height: 200px;">
+                        <div class="grid-item" style="grid-area: header;">Header</div>
+                        <div class="grid-item" style="grid-area: sidebar;">Sidebar</div>
+                        <div class="grid-item" style="grid-area: main;">Main Content</div>
+                        <div class="grid-item" style="grid-area: footer;">Footer</div>
+                    </div>
+                    
+                    <h2 class="section-title">📱 响应式Grid布局</h2>
+                    <p class="article-text">
+                        Grid布局与媒体查询结合，可以创建出色的响应式设计：
+                    </p>
+                    
+                    <div class="code-block">
+/* 移动端优先：单列布局 */
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+/* 平板：两列布局 */
+@media (min-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* 桌面：三列布局 */
+@media (min-width: 1024px) {
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* 使用auto-fit创建完全响应式网格 */
+.responsive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+                    </div>
+                    
+                    <h2 class="section-title">⚡ 高级技巧与最佳实践</h2>
+                    
+                    <h3 class="section-title" style="font-size: 1.2rem; color: #2c3e50; margin-top: 1.5rem;">1. 隐式网格与显式网格</h3>
+                    <p class="article-text">
+                        <strong>显式网格：</strong>使用grid-template-rows和grid-template-columns定义的网格<br>
+                        <strong>隐式网格：</strong>当项目被放置在显式网格之外时自动创建的网格轨道
+                    </p>
+                    
+                    <div class="code-block">
+.grid-container {
+    display: grid;
+    grid-template-columns: 100px 100px; /* 显式网格：2列 */
+    grid-auto-rows: 100px; /* 隐式行高度 */
+    grid-auto-columns: 50px; /* 隐式列宽度 */
+    grid-auto-flow: row; /* 自动放置方向：row | column | dense */
+}
+                    </div>
+                    
+                    <h3 class="section-title" style="font-size: 1.2rem; color: #2c3e50; margin-top: 1.5rem;">2. 使用minmax()函数</h3>
+                    <p class="article-text">
+                        minmax()函数定义了轨道大小的范围，非常适合创建灵活的布局：
+                    </p>
+                    
+                    <div class="code-block">
+.grid-container {
+    display: grid;
+    grid-template-columns: minmax(200px, 1fr) minmax(300px, 2fr);
+    /* 第一列最小200px，最大1fr；第二列最小300px，最大2fr */
+}
+                    </div>
+                    
+                    <h3 class="section-title" style="font-size: 1.2rem; color: #2c3e50; margin-top: 1.5rem;">3. Grid与Flexbox结合使用</h3>
+                    <p class="article-text">
+                        在复杂的布局中，Grid和Flexbox可以完美配合：
+                    </p>
+                    
+                    <div class="code-block">
+/* 外层使用Grid创建整体布局 */
+.page-layout {
+    display: grid;
+    grid-template-areas: "header" "main" "footer";
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+/* 内部组件使用Flexbox进行内容排列 */
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+                    </div>
+                    
+                    <h2 class="section-title">🔧 浏览器支持与降级方案</h2>
+                    <p class="article-text">
+                        CSS Grid得到所有现代浏览器的良好支持。对于不支持Grid的旧版浏览器，可以使用特性查询提供降级方案：
+                    </p>
+                    
+                    <div class="code-block">
+/* 现代浏览器使用Grid */
+@supports (display: grid) {
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* 不支持Grid的浏览器使用Flexbox作为降级 */
+@supports not (display: grid) {
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .container > * {
+        flex: 1 1 300px;
+    }
+}
+                    </div>
+                    
+                    <div class="highlight-box">
+                        <p>🎨 CSS Grid是现代网页布局的终极解决方案，掌握它将彻底改变你构建网页的方式！</p>
+                    </div>
+                </section>
+                
+                <div class="article-actions">
+                    <button class="action-btn" onclick="window.location.href='/blog.html'">
+                        📖 浏览更多文章
+                    </button>
+                    <button class="action-btn secondary" onclick="window.location.href='/index.html'">
+                        🏠 返回首页
+                    </button>
+                </div>
+            </div>
+        </article>
+    </main>
+    
+    <footer>
+        <p>Copyright © 2025-2037 Creeper苦力怕i的个人博客. 保留所有权利。</p>
+    </footer>
+</body>
+</html>
