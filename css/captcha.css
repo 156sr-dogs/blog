@@ -1,0 +1,304 @@
+/* 验证模式指示器 */
+.verification-mode-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-mode-switch {
+    background: rgba(0, 122, 255, 0.1);
+    border: 1px solid rgba(0, 122, 255, 0.3);
+    color: #007aff;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.btn-mode-switch:hover {
+    background: rgba(0, 122, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* 验证码容器 */
+.captcha-container {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+    transition: all 0.3s ease;
+}
+
+.captcha-container:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* 验证码头部 */
+.captcha-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.captcha-header h3 {
+    font-size: 1.2rem;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.captcha-badge {
+    font-size: 0.8rem;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+.captcha-badge.active {
+    background: rgba(52, 199, 89, 0.1);
+    color: #34c759;
+    border: 1px solid rgba(52, 199, 89, 0.3);
+}
+
+.captcha-badge.warning {
+    background: rgba(255, 204, 0, 0.1);
+    color: #ffcc00;
+    border: 1px solid rgba(255, 204, 0, 0.3);
+}
+
+/* hCaptcha 样式 */
+.h-captcha {
+    margin: 15px 0;
+}
+
+.h-captcha iframe {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* 数学验证码样式 */
+.math-captcha {
+    padding: 20px 0;
+}
+
+.math-problem {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 25px;
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+}
+
+.math-expression {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 15px;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 2px;
+}
+
+.math-numbers {
+    display: inline-block;
+    padding: 10px 20px;
+    background: rgba(0, 180, 219, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.math-instruction {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+.math-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.btn-refresh-math,
+.btn-hint-math {
+    flex: 1;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-refresh-math {
+    background: rgba(0, 180, 219, 0.1);
+    border: 1px solid rgba(0, 180, 219, 0.3);
+    color: #00b4db;
+}
+
+.btn-refresh-math:hover {
+    background: rgba(0, 180, 219, 0.2);
+    transform: translateY(-2px);
+}
+
+.btn-hint-math {
+    background: rgba(255, 204, 0, 0.1);
+    border: 1px solid rgba(255, 204, 0, 0.3);
+    color: #ffcc00;
+}
+
+.btn-hint-math:hover {
+    background: rgba(255, 204, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+/* 验证码状态 */
+.captcha-status {
+    margin-top: 15px;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    animation: slideInUp 0.3s ease;
+}
+
+.captcha-status-success {
+    background: rgba(52, 199, 89, 0.1);
+    color: #34c759;
+    border: 1px solid rgba(52, 199, 89, 0.3);
+}
+
+.captcha-status-error {
+    background: rgba(255, 59, 48, 0.1);
+    color: #ff3b30;
+    border: 1px solid rgba(255, 59, 48, 0.3);
+}
+
+.captcha-status-info {
+    background: rgba(0, 122, 255, 0.1);
+    color: #007aff;
+    border: 1px solid rgba(0, 122, 255, 0.3);
+}
+
+.captcha-status-warning {
+    background: rgba(255, 204, 0, 0.1);
+    color: #ffcc00;
+    border: 1px solid rgba(255, 204, 0, 0.3);
+}
+
+.status-icon {
+    font-size: 1.2rem;
+}
+
+.status-text {
+    flex: 1;
+}
+
+/* 备用验证通知 */
+.captcha-fallback-notice {
+    margin: 20px 0;
+    padding: 15px 20px;
+    background: rgba(255, 204, 0, 0.1);
+    border: 1px solid rgba(255, 204, 0, 0.3);
+    border-radius: 10px;
+    color: #ffcc00;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    animation: fadeIn 0.5s ease;
+}
+
+.notice-icon {
+    font-size: 1.3rem;
+}
+
+.notice-text {
+    flex: 1;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* 状态指示器 */
+.status-dot.inactive {
+    background: #ff3b30;
+    box-shadow: 0 0 10px rgba(255, 59, 48, 0.5);
+    animation: pulse 2s infinite;
+}
+
+/* 动画 */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .verification-mode-indicator {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    .math-expression {
+        font-size: 2rem;
+    }
+    
+    .math-actions {
+        flex-direction: column;
+    }
+    
+    .btn-refresh-math,
+    .btn-hint-math {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .math-problem {
+        padding: 15px;
+    }
+    
+    .math-expression {
+        font-size: 1.8rem;
+    }
+    
+    .captcha-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .captcha-badge {
+        align-self: flex-start;
+    }
+}
